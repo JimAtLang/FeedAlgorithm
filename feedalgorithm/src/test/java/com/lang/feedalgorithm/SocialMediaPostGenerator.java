@@ -1,14 +1,20 @@
 package com.lang.feedalgorithm;
 
+import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SocialMediaPostGenerator {
     User user;
+    Random random = new Random();
     public SocialMediaPostGenerator(User user){
         this.user = user;
         int numberOfPosts = 10000; // Set this to 1000 for full generation
@@ -36,8 +42,22 @@ public class SocialMediaPostGenerator {
             "Staying motivated can be tough, but with these {items}, you'll be on track in no time."
     };
 
+    public LocalDateTime getRandomDateInNextFiveDays() {
+
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+        
+        // Generate a random number of seconds from now to five days from now
+        long secondsInFiveDays = 5 * 24 * 60 * 60; // 5 days in seconds
+        long randomSeconds = random.nextLong(0, secondsInFiveDays);
+
+        // Add the random seconds to the current date and time
+        return now.plusSeconds(randomSeconds);
+    }
+
+
     public ArrayList<Post> generatePosts(int count, User user) {
-        Random random = new Random();
+        
         ArrayList<Post> posts = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             // Select random category
@@ -71,7 +91,8 @@ public class SocialMediaPostGenerator {
 
             ArrayList<String> keywordsList = new ArrayList<>();
             Collections.addAll(keywordsList,keywordsArray);
-            Post newPost = new Post(title, text, user, keywordsList);
+            LocalDateTime postTime = getRandomDateInNextFiveDays(); 
+            Post newPost = new Post(title, text, user, postTime, keywordsList);
             posts.add(newPost);
         }
         return posts;

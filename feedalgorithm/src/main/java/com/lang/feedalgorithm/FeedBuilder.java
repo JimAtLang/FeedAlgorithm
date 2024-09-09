@@ -18,6 +18,10 @@ public class FeedBuilder {
         User user = new User(userName, this);
         users.add(user);
     }
+    
+    public void addUser(User u){
+        users.add(u);
+    }
 
     public Feed buildFeed(User user){
         Feed feed = new Feed();
@@ -31,7 +35,7 @@ public class FeedBuilder {
         Comparator<Post> timeComparator = new Comparator<Post>() {
             @Override
             public int compare(Post post1, Post post2) {
-                return post1.getTimeStamp().after(post2.getTimeStamp())?1:-1;
+                return post1.getTimeStamp().isAfter(post2.getTimeStamp())?1:-1;
             }
         };
         followedUserPosts.sort(timeComparator);

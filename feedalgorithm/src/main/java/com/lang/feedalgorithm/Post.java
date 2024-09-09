@@ -1,13 +1,22 @@
 package com.lang.feedalgorithm;
 
 import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Post {
+    public Post(String title, String text, User author, LocalDateTime timeStamp, ArrayList<String> keywords) {
+        this.title = title;
+        this.text = text;
+        this.author = author;
+        this.timeStamp = timeStamp;
+        this.keywords = keywords;
+    }
+
     private String title;
     private String text;
     private User author;
-    private Date timeStamp;
+    private LocalDateTime timeStamp;
     private ArrayList<String> keywords;
 
     public Post(String title, String text, User author, ArrayList<String> keywords) {
@@ -21,7 +30,7 @@ public class Post {
         this.title = title;
         this.text = text;
         this.author = author;
-        this.timeStamp = new Date();
+        this.timeStamp = LocalDateTime.now();
     }
 
     public ArrayList<String> getKeyWords() {
@@ -36,7 +45,7 @@ public class Post {
         this.keywords.add(keyword);
     }
 
-    public Date getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
