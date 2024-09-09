@@ -28,10 +28,9 @@ public class FeedBuilder {
             }
             
         }
-        Comparator timeComparator = new Comparator<Post>() {
+        Comparator<Post> timeComparator = new Comparator<Post>() {
             @Override
             public int compare(Post post1, Post post2) {
-                // TODO Auto-generated method stub
                 return post1.getTimeStamp().after(post2.getTimeStamp())?1:-1;
             }
         };
