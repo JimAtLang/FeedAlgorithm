@@ -1,4 +1,4 @@
-package io.github.jiangdequan;
+package com.lang.feedalgorithm;
 
 public class Feed {
     
