@@ -17,23 +17,23 @@ public class Tester {
                 int charType = r.nextInt(10);
                 char nextChar;
                 if (charType < 5){
-                    nextChar = (char)(r.nextInt(26) + 97);
+                    nextChar = (char)(r.nextInt(26) + 'a');
                 } else if (charType < 8) {
-                    nextChar = (char)(r.nextInt(26) + 65);
+                    nextChar = (char)(r.nextInt(26) + 'A');
                 } else {
-                    nextChar = (char)(r.nextInt(10) + 48);
+                    nextChar = (char)(r.nextInt(10) + '0');
                 }
                 username += nextChar;
             }
             User u = new User(username, fb);
             SocialMediaPostGenerator smpg = new SocialMediaPostGenerator(u);
             int numberOfPosts = r.nextInt(maxPostPerUser-minPostPerUser) + minPostPerUser;
-            //FIXME: right now all the posts will be at the same time. need to randomize the times.
             ArrayList<Post> posts = smpg.generatePosts(numberOfPosts, u);
             u.getPostHistory().addAll(posts);
             fb.addUser(u);
         }
         // TODO: generate interests
+        // TODO: create follows
         // TODO: randomly share posts from other users
         // TODO: generate feeds
     }
