@@ -8,18 +8,18 @@ public class Post {
     private String text;
     private User author;
     private Date timeStamp;
-    private ArrayList<String> keyWords;
+    private ArrayList<String> keywords;
 
     public ArrayList<String> getKeyWords() {
-        return keyWords;
+        return keywords;
     }
 
-    public void setKeyWords(ArrayList<String> keyWords) {
-        this.keyWords = keyWords;
+    public void setKeyWords(ArrayList<String> keyword) {
+        this.keywords = keyword;
     }
 
-    public void addKeyword(String keyWord){
-        keyWords.add(keyWord);
+    public void addKeyword(String keyword){
+        this.keywords.add(keyword);
     }
 
     public Date getTimeStamp() {

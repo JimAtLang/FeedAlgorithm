@@ -1,6 +1,7 @@
 package com.lang.feedalgorithm;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Feed {
     private LinkedList<Post> posts;
@@ -15,6 +16,9 @@ public class Feed {
     
     public void addPost(Post post){
         posts.add(post);
+    }
+    public void addPosts(List<Post> postsToAdd){
+        posts.addAll(postsToAdd);
     }
 
 }
