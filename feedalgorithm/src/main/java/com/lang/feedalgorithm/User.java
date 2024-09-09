@@ -8,12 +8,22 @@ public class User {
     private FeedBuilder feedBuilder;
     private ArrayList<User> follows;
     private LinkedList<Post> postHistory;
+    private ArrayList<String> interests;
     
+    public ArrayList<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(ArrayList<String> interests) {
+        this.interests = interests;
+    }
+
     public User(String userName, FeedBuilder feedBuilder) {
         this.userName = userName;
         this.feedBuilder = feedBuilder;
         this.follows = new ArrayList<>();
         this.postHistory = new LinkedList<>();
+        this.interests = new ArrayList<>();
     }
 
     public FeedBuilder getFeedBuilder() {

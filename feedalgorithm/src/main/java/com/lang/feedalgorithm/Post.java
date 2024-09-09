@@ -1,12 +1,26 @@
 package com.lang.feedalgorithm;
 
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Post {
     private String title;
     private String text;
     private User author;
     private Date timeStamp;
+    private ArrayList<String> keyWords;
+
+    public ArrayList<String> getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(ArrayList<String> keyWords) {
+        this.keyWords = keyWords;
+    }
+
+    public void addKeyword(String keyWord){
+        keyWords.add(keyWord);
+    }
 
     public Date getTimeStamp() {
         return timeStamp;
