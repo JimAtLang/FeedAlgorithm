@@ -10,6 +10,20 @@ public class Post {
     private Date timeStamp;
     private ArrayList<String> keywords;
 
+    public Post(String title, String text, User author, ArrayList<String> keywords) {
+        this.title = title;
+        this.text = text;
+        this.author = author;
+        this.keywords = keywords;
+    }
+
+    public Post(String title, String text, User author) {
+        this.title = title;
+        this.text = text;
+        this.author = author;
+        this.timeStamp = new Date();
+    }
+
     public ArrayList<String> getKeyWords() {
         return keywords;
     }
@@ -24,13 +38,6 @@ public class Post {
 
     public Date getTimeStamp() {
         return timeStamp;
-    }
-
-    public Post(String title, String text, User author) {
-        this.title = title;
-        this.text = text;
-        this.author = author;
-        this.timeStamp = new Date();
     }
 
     public User getAuthor() {
