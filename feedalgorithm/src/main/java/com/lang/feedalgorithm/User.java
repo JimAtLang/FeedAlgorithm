@@ -5,9 +5,23 @@ import java.util.ArrayList;
 
 public class User {
     private String userName;
+    private FeedBuilder feedBuilder;
     private ArrayList<User> follows;
     private LinkedList<Post> postHistory;
     
+    public User(String userName, FeedBuilder feedBuilder) {
+        this.userName = userName;
+        this.feedBuilder = feedBuilder;
+        this.follows = new ArrayList<>();
+        this.postHistory = new LinkedList<>();
+    }
+
+    public FeedBuilder getFeedBuilder() {
+        return feedBuilder;
+    }
+    public void setFeedBuilder(FeedBuilder feedBuilder) {
+        this.feedBuilder = feedBuilder;
+    }
     public LinkedList<Post> getPostHistory() {
         return postHistory;
     }
@@ -22,7 +36,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
 
     public void followUser(User user){
         follows.add(user);
