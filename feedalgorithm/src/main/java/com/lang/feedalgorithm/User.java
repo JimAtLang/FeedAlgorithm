@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class User {
     private String userName;
-    private FeedBuilder feedBuilder;
     private ArrayList<User> follows;
     private LinkedList<Post> postHistory;
     private ArrayList<String> interests;
@@ -18,20 +17,13 @@ public class User {
         this.interests = interests;
     }
 
-    public User(String userName, FeedBuilder feedBuilder) {
+    public User(String userName) {
         this.userName = userName;
-        this.feedBuilder = feedBuilder;
         this.follows = new ArrayList<>();
         this.postHistory = new LinkedList<>();
         this.interests = new ArrayList<>();
     }
 
-    public FeedBuilder getFeedBuilder() {
-        return feedBuilder;
-    }
-    public void setFeedBuilder(FeedBuilder feedBuilder) {
-        this.feedBuilder = feedBuilder;
-    }
     public LinkedList<Post> getPostHistory() {
         return postHistory;
     }

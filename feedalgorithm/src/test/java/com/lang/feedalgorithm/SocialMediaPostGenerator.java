@@ -1,8 +1,6 @@
 package com.lang.feedalgorithm;
 
-import java.util.Date;
-import java.time.Instant;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class SocialMediaPostGenerator {
     User user;

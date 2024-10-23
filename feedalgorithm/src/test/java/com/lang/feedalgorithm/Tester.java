@@ -8,7 +8,6 @@ public class Tester {
     int userCount = 1000;
     int minPostPerUser = 10;
     int maxPostPerUser = 1000;
-    FeedBuilder fb = new FeedBuilder();
     public Tester(){
         for(int i=0; i < userCount; i++){
             int usernameSize = r.nextInt(7) + 5;
@@ -25,16 +24,18 @@ public class Tester {
                 }
                 username += nextChar;
             }
-            User u = new User(username, fb);
+            User u = new User(username);
             SocialMediaPostGenerator smpg = new SocialMediaPostGenerator(u);
             int numberOfPosts = r.nextInt(maxPostPerUser-minPostPerUser) + minPostPerUser;
             ArrayList<Post> posts = smpg.generatePosts(numberOfPosts, u);
             u.getPostHistory().addAll(posts);
-            fb.addUser(u);
         }
         // TODO: generate interests
         // TODO: create follows
         // TODO: randomly share posts from other users
         // TODO: generate feeds
+    }
+    public void test(){
+        
     }
 }
